@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 
@@ -41,16 +41,17 @@ def cnn(image_size):
     classifier.add(Flatten())
     classifier.add(Dense(units = 128, activation = 'relu'))
     classifier.add(Dropout(0.2))
-    classifier.add(Dense(units = 17, activation = 'sigmoid'))
+    classifier.add(Dense(units = 17, activation = 'softmax'))
     classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
     classifier.summary()
     return classifier
 
-neuralnetwork = cnn(image_size)
+# neuralnetwork = cnn(image_size)
 
 
-neuralnetwork.summary()
+# neuralnetwork.summary()
 
+neuralnetwork = load_model("model.h5")
 
 neuralnetwork.fit_generator(training_set,
                          steps_per_epoch = 139612,
