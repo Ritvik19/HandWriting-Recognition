@@ -19,7 +19,7 @@
 
 (28,28,1) -> 32 Conv2D (3,3) (relu) (0.2) -> Flatten -> 128 (relu) (0.2) -> 10 (sigmoid)
 
-## Mathematical Symbols
+## Mathematical Operators
 0-9 (+-x/=)
 
 **CNN Architecture**

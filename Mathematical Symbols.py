@@ -9,7 +9,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
 
 es = EarlyStopping(monitor='loss', mode='min', verbose=1)
-filepath = "model.h5"
+filepath = "model1.h5"
 ckpt = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 
 image_size = (28, 28)
@@ -20,14 +20,14 @@ datagen = ImageDataGenerator(rescale = 1./255,
                                    horizontal_flip = False,
                                    validation_split=0.3)
                                    
-training_set = datagen.flow_from_directory('../[Data] HandWriting-Recognition/MathSymbols',
+training_set = datagen.flow_from_directory('../[Data] HandWriting-Recognition/handwrittenmathsymbols',
                                                  target_size = image_size,
                                                  color_mode='grayscale',
                                                  batch_size = 32,
                                                  class_mode = 'categorical',
                                                  subset='training')
 
-validation_set = datagen.flow_from_directory('../[Data] HandWriting-Recognition/MathSymbols',
+validation_set = datagen.flow_from_directory('../[Data] HandWriting-Recognition/handwrittenmathsymbols',
                                                  target_size = image_size,
                                                  color_mode='grayscale',
                                                  batch_size = 32,
@@ -41,21 +41,18 @@ def cnn(image_size):
     classifier.add(Flatten())
     classifier.add(Dense(units = 128, activation = 'relu'))
     classifier.add(Dropout(0.2))
-    classifier.add(Dense(units = 17, activation = 'softmax'))
+    classifier.add(Dense(units = 82, activation = 'softmax'))
     classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
     classifier.summary()
     return classifier
 
-# neuralnetwork = cnn(image_size)
+neuralnetwork = cnn(image_size)
 
-
-# neuralnetwork.summary()
-
-neuralnetwork = load_model("model.h5")
+# neuralnetwork = load_model("model1.h5")
 
 neuralnetwork.fit_generator(training_set,
-                         steps_per_epoch = 139612,
+                         steps_per_epoch = 263219,
                          epochs = 50,
                          validation_data = validation_set,
-                         validation_steps = 59825, 
+                         validation_steps = 112755, 
                          callbacks=[es, ckpt])
