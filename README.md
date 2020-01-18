@@ -19,9 +19,9 @@
 
 (28,28,1) -> 32 Conv2D (3,3) (relu) (0.2) -> Flatten -> 128 (relu) (0.2) -> 10 (sigmoid)
 
-## Mathematical Operators
-0-9 (+-x/=)
+## Alphabet-Digit
+0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZabdefghnqrt
 
 **CNN Architecture**
 
-(28,28,1) -> 32 Conv2D (3,3) (relu) (0.2) -> Flatten -> 128 (relu) (0.2) -> 10 (softmaxs)
+(28,28,1) -> 32 Conv2D (3,3) (relu) (0.2) -> Flatten -> 128 (relu) (0.2) -> 47 (softmax)
