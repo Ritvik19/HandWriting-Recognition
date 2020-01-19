@@ -24,4 +24,6 @@
 
 **CNN Architecture**
 
-(28,28,1) -> 32 Conv2D (3,3) (relu) (0.2) -> Flatten -> 128 (relu) (0.2) -> 47 (softmax)
+(28,28,1) -> 32 Conv2D (3,3) (relu) -> MaxPool2D(2,2) (0.2) -> Flatten -> 128 (relu) (0.2) -> 47 (softmax)
+
+Accuracy 85.99%
