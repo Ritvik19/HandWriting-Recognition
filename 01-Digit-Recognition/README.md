@@ -7,8 +7,16 @@ Classes:
 
 Dataset: MNIST             
 ___
-## Model Architecture
-![model](CNN.png)
+## Non Equalized Images
+### Model Architecture
+![model](CNN1.png)
 
-## Model Performance
-![performance](Training.png)
+### Model Performance
+![performance](Training1.png)
+___
+## Equalized Images
+### Model Architecture
+![model](CNN2.png)
+
+### Model Performance
+![performance](Training2.png)
