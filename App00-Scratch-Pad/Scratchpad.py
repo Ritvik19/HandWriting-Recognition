@@ -1,13 +1,13 @@
-from tkinter import *
-import math, os
+import argparse, math, os, sys
 
 import numpy as np
 import matplotlib.pyplot as plt
 
+from tkinter import *
 from PIL import Image, ImageDraw
 from keras.models import load_model
 
-mode = {
+LENS = {
     'digi' : [
         'E:/Models/Lens/lens-digi.h5', 
         {0: '0', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8', 9: '9'}
@@ -24,34 +24,54 @@ mode = {
          14: 'E', 15: 'F', 16: 'G', 17: 'H', 18: 'I', 19: 'J', 20: 'K', 21: 'L', 22: 'M', 23: 'N', 24: 'O', 25: 'P', 26: 'Q',
          27: 'R', 28: 'S', 29: 'T', 30: 'U', 31: 'V', 32: 'W', 33: 'X', 34: 'Y', 35: 'Z', 36: 'a', 37: 'b', 38: 'd', 39: 'e',
          40: 'f', 41: 'g', 42: 'h', 43: 'n', 44: 'q', 45: 'r', 46: 't'}
+    ],
+    'kdigi': [
+        'E:/Models/Lens/lens-kdigi.h5', 
+        {0: '೦', 1: '೧', 2: '೨', 3: '೩', 4: '೪', 5: '೫', 6: '೬', 7: '೭', 8: '೮', 9: '೯'}
+    ],
+    'ddigi': [
+        'E:/Models/Lens/lens-kdigi.h5', 
+        {0: '०', 1: '१', 2: '२', 3: '३', 4: '४', 5: '५', 6: '६', 7: '७', 8: '८', 9: '९'} 
     ]
 }
 
 os.system('cls')
-m = input('Enter lens name\ndigi\nalpha\nalnum\n$ ')
 
-model_path, symbols = mode[m]
+parser = argparse.ArgumentParser(description='Scratchpad Application to play around with the lenses')
+required_args = parser.add_argument_group('required arguments')
+required_args.add_argument('-l', '--lens', help='name of the lens', required=True)
+args = parser.parse_args()
 
-model = load_model(model_path)
+try:
+    model_path, symbols = LENS[args.lens]
+    model = load_model(model_path)
+except KeyError:
+    print('Invalid Lens')
+    print('Available Lenses:')
+    print(*LENS.keys(), sep='\n')
+    sys.exit(0)
 
 os.system('cls')
-white = (255, 255, 255)
-black = (0, 0, 0)
 
-window = Tk()
-window.title("Scratch Pad")
-window.geometry('270x250')
- 
-canvas_width = 200
-canvas_height = 200
-image1 = Image.new("RGB", (canvas_width, canvas_height),white)
-draw = ImageDraw.Draw(image1)
+# Constants
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+CANVAS_WIDTH = 200
+CANVAS_HEIGHT = 200
+
+# Global Variables
 xpoints=[]
 ypoints=[]
 x2points=[]
 y2points=[]
-
 LABEL_TEXT = ""
+
+window = Tk()
+window.title("Scratch Pad")
+window.geometry('270x250')
+
+image1 = Image.new("RGB", (CANVAS_WIDTH, CANVAS_HEIGHT),WHITE)
+draw = ImageDraw.Draw(image1)
 
 lbl = Label(window, text='',font=('Arial Bold',20))
 lbl.grid(column=1, row=1, columnspan=2)
@@ -70,7 +90,7 @@ def imagen ():
     global ypoints    
     global x2points
     global y2points
-    image1 = Image.new("RGB", (canvas_width, canvas_height),black)
+    image1 = Image.new("RGB", (CANVAS_WIDTH, CANVAS_HEIGHT),BLACK)
     draw = ImageDraw.Draw(image1) 
     elementos=len(xpoints)
     for p in range (elementos):
@@ -100,8 +120,8 @@ def imagen ():
     y2points=[]
 
 w = Canvas(window, 
-           width=canvas_width, 
-           height=canvas_height,bg='gray85')
+           width=CANVAS_WIDTH, 
+           height=CANVAS_HEIGHT,bg='gray85')
 w.grid(column=1,row=2, rowspan=3)
 
 
