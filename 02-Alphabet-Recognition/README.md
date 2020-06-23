@@ -6,23 +6,8 @@ Classes:
 
 Dataset: EMNIST-balanced          
 ___
-## Non Equalized Images
 ### Model Architecture
-![model](CNN1.png)
+![model](model.png)
 
 ### Model Performance
-![performance](Training1.png)
-___
-## Equalized Images
-### Model Architecture
-![model](CNN2.png)
-
-### Model Performance
-![performance](Training2.png)
-___
-## Robust Model
-### Model Architecture
-![model](CNN3.png)
-
-### Model Performance
-![performance](Training3.png)
+![performance](history.png)
