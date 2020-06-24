@@ -5,7 +5,7 @@ Classes:
              ೦, ೧, ೨, ೩, ೪, ೫, ೬, ೭, ೮, ೯
 
 
-Dataset: KMNIST             
+Dataset: Kannada MNIST             
 ___
 ### Model Architecture
 ![model](model.png)
