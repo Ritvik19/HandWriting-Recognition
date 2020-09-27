@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandWriting-Recognition</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="tab-1" data-toggle="tab" href="#pane-1" role="tab" aria-controls="pane-1" aria-selected="false">lens-alnum</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="tab-2" data-toggle="tab" href="#pane-2" role="tab" aria-controls="pane-2" aria-selected="false">lens-alpha</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="tab-3" data-toggle="tab" href="#pane-3" role="tab" aria-controls="pane-3" aria-selected="false">lens-ddigi</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="tab-4" data-toggle="tab" href="#pane-4" role="tab" aria-controls="pane-4" aria-selected="false">lens-digi</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="tab-5" data-toggle="tab" href="#pane-5" role="tab" aria-controls="pane-5" aria-selected="false">lens-kdigi</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="tab-6" data-toggle="tab" href="#pane-6" role="tab" aria-controls="pane-6" aria-selected="false">lens-maths</a>
+            </li>
+
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1>HandWriting Recognition</h1>
+
+<h3>Lenses:</h3>
+
+<pre><code>    Train a model
+
+    usage: train.py [-h] [-a algo] [-d data] [-p [problem]] [-t [type]]
+
+    optional arguments:
+    -h, --help            show this help message and exit
+
+    required arguments:
+
+    -a algo, --algo algo  algorithm to run (lens-&lt;lesn-name&gt;)
+    -d data, --dataset data dataset to train on (&lt;lens-name&gt;)
+    -p [problem], --problem [problem] type of problem (mc)
+    -t [type], --type [type] type of dataset (img)
+</code></pre>
+
+<ul>
+<li><p>lens-digi: </p>
+
+<pre><code> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+</code></pre></li>
+<li><p>lens-alpha</p>
+
+<pre><code>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b d e f g h n q r t
+</code></pre></li>
+<li><p>lens-alnum: </p>
+
+<pre><code>0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b d e f g h n q r t
+</code></pre></li>
+<li><p>lens-kdigi:</p>
+
+<pre><code>೦, ೧, ೨, ೩, ೪, ೫, ೬, ೭, ೮, ೯
+</code></pre></li>
+<li><p>lens-ddigi:</p>
+
+<pre><code>०, १, २, ३, ४, ५, ६, ७, ८, ९
+</code></pre></li>
+<li><p>lens-maths:</p>
+
+<pre><code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, (, ), +, ÷ , =, ×, -
+</code></pre></li>
+</ul>
+
+<h3>Applications</h3>
+
+<ol>
+<li><p>Scratchpad        </p>
+
+<pre><code>Scratchpad Application to play around with the lenses
+
+usage: Scratchpad.py [-h] -l LENS
+
+optional arguments:
+-h, --help            show this help message and exit
+
+required arguments:
+-l LENS, --lens LENS  name of the lens
+</code></pre></li>
+<li><p>Basic Calculator</p>
+
+<pre><code>Simple Calculator Application that works on handwriting input
+
+usage: BasicCalc.py
+</code></pre></li>
+<li><p><a href="https://github.com/Ritvik19/Sudoku-Lens">Sudoku-Lens</a></p>
+
+<pre><code>Application that solves Sudoku Quizzes using neural networks
+</code></pre></li>
+<li><p>OCR</p>
+
+<pre><code>OCR Application to read text from an image
+
+usage: OCR.py [-h] -p PATH
+
+optional arguments:
+-h, --help            show this help message and exit
+
+required arguments:
+-p PATH, --path PATH  path of the image
+</code></pre></li>
+</ol>
+
+                        <hr class="my-4">
+                        <p class="lead">This is a simple web page, for displaying the performances of the various models trained.</p>
+                        <p>Navigate using the tabs to check the performance of any model</p>
+                    </div>
+                </div>
+            </div>
+
+    <div class="tab-pane fade" id="pane-1" role="tabpanel" aria-labelledby="tab-1">
+    
+        <h1>Model Architecture</h1>
+        <img src="../performance\lens-alnum\arch.png" maxwidth="100%">
+        <h1>Model Performance</h1>
+        <img src="../performance\lens-alnum\Model-Performance.png" width="100%">
+    
+</div>
+    <div class="tab-pane fade" id="pane-2" role="tabpanel" aria-labelledby="tab-2">
+    
+        <h1>Model Architecture</h1>
+        <img src="../performance\lens-alpha\arch.png" maxwidth="100%">
+        <h1>Model Performance</h1>
+        <img src="../performance\lens-alpha\Model-Performance.png" width="100%">
+    
+</div>
+    <div class="tab-pane fade" id="pane-3" role="tabpanel" aria-labelledby="tab-3">
+    
+        <h1>Model Architecture</h1>
+        <img src="../performance\lens-ddigi\arch.png" maxwidth="100%">
+        <h1>Model Performance</h1>
+        <img src="../performance\lens-ddigi\Model-Performance.png" width="100%">
+    
+</div>
+    <div class="tab-pane fade" id="pane-4" role="tabpanel" aria-labelledby="tab-4">
+    
+        <h1>Model Architecture</h1>
+        <img src="../performance\lens-digi\arch.png" maxwidth="100%">
+        <h1>Model Performance</h1>
+        <img src="../performance\lens-digi\Model-Performance.png" width="100%">
+    
+</div>
+    <div class="tab-pane fade" id="pane-5" role="tabpanel" aria-labelledby="tab-5">
+    
+        <h1>Model Architecture</h1>
+        <img src="../performance\lens-kdigi\arch.png" maxwidth="100%">
+        <h1>Model Performance</h1>
+        <img src="../performance\lens-kdigi\Model-Performance.png" width="100%">
+    
+</div>
+    <div class="tab-pane fade" id="pane-6" role="tabpanel" aria-labelledby="tab-6">
+    
+        <h1>Model Architecture</h1>
+        <img src="../performance\lens-maths\arch.png" maxwidth="100%">
+        <h1>Model Performance</h1>
+        <img src="../performance\lens-maths\Model-Performance.png" width="100%">
+    
+</div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
