@@ -1,4 +1,6 @@
 # HandWriting Recognition
+
+Using Convolutional Neural Neworks to recognise handwritten characters
        
 ### Lenses:
 
@@ -11,7 +13,7 @@
 
         required arguments:
 
-        -a algo, --algo algo  algorithm to run (lens-<lesn-name>)
+        -a algo, --algo algo  algorithm to run (lens-<lens-name>)
         -d data, --dataset data dataset to train on (<lens-name>)
         -p [problem], --problem [problem] type of problem (mc)
         -t [type], --type [type] type of dataset (img)
